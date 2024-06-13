@@ -5,7 +5,7 @@ import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
 import Product from "./Components/Product";
 import Order from "./Components/Order";
 import Cart from "./Components/Cart";
-
+import Login from "./Components/Login";
 function App() {
   return (
     <NoteState>
@@ -18,6 +18,7 @@ function App() {
         </header>
         <Routes>
           <Route exact path="/" element={<Product />} />
+          <Route exact path="/login" element={<Login/>}/>
 
           <Route exact path="/cart" element={<Cart />} />
         </Routes>

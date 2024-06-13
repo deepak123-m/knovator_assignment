@@ -1,11 +1,15 @@
 import React, { useState, useContext, useEffect } from "react";
 import noteContext from "../Context/Notecontext";
-
+import { Link, useNavigate } from "react-router-dom";
 
 const Cart = () => {
   const context = useContext(noteContext);
-  const {  cartDetails } = context;
+  const {users,  cartDetails } = context;
   var total = 0;
+
+  let navigate = useNavigate();
+console.log("cart users")
+  console.log(users)
 
 
   const handletotal = (price, quantity) => {
@@ -52,6 +56,16 @@ const Cart = () => {
     setTimeout(() => setSubmitted(false), 3000);
   };
 
+  useEffect(() => {
+    
+if(users !== 1)
+  {
+  console.log("bnsodfg")
+  navigate("/login")
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+}
+  },[])
+
   return (
     <div className="container mx-auto mt-10">
       <h1 className="text-3xl font-semibold mb-6">Cart</h1>
@@ -88,12 +102,12 @@ const Cart = () => {
       </div>
 
       <div className="container mx-auto bg-gray-200  mt-10">
-        <h1 className="text-3xl font-semibold mb-6 text-center">
-          User Details Form
+        <h1 className="text-3xl font-bold  mb-6 text-center">
+          Fill Your details to place the order
         </h1>
         {submitted && (
-          <div className="text-green-500 text-center">
-            Successfully submitted!
+          <div className="text-green-600 text-3xl font-bold text-center">
+            Successfully Placed Order!
           </div>
         )}
         <form
